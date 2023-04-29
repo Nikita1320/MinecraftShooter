@@ -9,6 +9,9 @@ public class PlayerInventoryCell : MonoBehaviour
     [SerializeField] private Text keyText;
     [SerializeField] private Image closeImage;
     [SerializeField] private Image[] improvementImages;
+    [SerializeField] private Button button;
+
+    public Button Button { get => button; }
 
     public void Init(WeaponData weapon, bool isOpen, int level, int key)
     {

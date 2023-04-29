@@ -30,7 +30,7 @@ MonoBehaviour:
   increseDamage: 50
   baseClip: 1
   increseClip: 0
-  baseRateOfFire: 200
-  increseRateOfFire: 50
+  baseRateOfFire: 1
+  increseRateOfFire: 0
   typeWeapon: 3
   overrideController: {fileID: 22100000, guid: 6a4aaa942d98e9949ac6f0eac97ff7d3, type: 2}

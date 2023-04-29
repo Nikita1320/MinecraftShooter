@@ -26,7 +26,7 @@ MonoBehaviour:
     cost: 750
   yandexBuyPrice: 13
   yandexUpgradePrice: 060000000700000008000000
-  baseDamage: 200
+  baseDamage: 300
   increseDamage: 50
   baseClip: 5
   increseClip: 1

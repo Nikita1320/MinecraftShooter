@@ -9,6 +9,7 @@ public class FirstPersonCameraController : MonoBehaviour
 
     public void RotateCamera(float mouseX, float mouseY)
     {
+        Debug.Log($"JoystickCamera parametres = {mouseX}, {mouseY}");
         xRotation -= mouseY * (mouseSensivity + mouseSensivity * mouseSensivitySlider.value * 3 * Time.deltaTime);
         xRotation = Mathf.Clamp(xRotation, -90, 90);
 

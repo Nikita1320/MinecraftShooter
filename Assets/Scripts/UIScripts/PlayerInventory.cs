@@ -33,6 +33,8 @@ public class PlayerInventory : MonoBehaviour
             var cell = Instantiate(prefab, cellsConteiner.transform);
             cell.Init(inventory.Weapons[i].WeaponData, inventory.AccessableWeapon[inventory.Weapons[i]], inventory.LevelWeapon[inventory.Weapons[i]], i + 1);
             playerInventoryCells.Add(cell);
+            var numberWeapon = i;
+            cell.Button.onClick.AddListener(() => playerCombatSystem.SelectWeapon(numberWeapon));
         }
     }
     public void DestroyCell()

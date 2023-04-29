@@ -26,11 +26,11 @@ MonoBehaviour:
     cost: 300
   yandexBuyPrice: 2
   yandexUpgradePrice: 010000000200000003000000
-  baseDamage: 50
-  increseDamage: 10
-  baseClip: 50
-  increseClip: 10
-  baseRateOfFire: 800
-  increseRateOfFire: 10
+  baseDamage: 150
+  increseDamage: 15
+  baseClip: 7
+  increseClip: 2
+  baseRateOfFire: 350
+  increseRateOfFire: 25
   typeWeapon: 1
   overrideController: {fileID: 22100000, guid: d9153380793a3024fb68cab07c3d59e9, type: 2}

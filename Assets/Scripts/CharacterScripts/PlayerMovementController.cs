@@ -10,6 +10,7 @@ public class PlayerMovementController : MonoBehaviour
     [SerializeField] private LayerMask groundMask;
     [SerializeField] private Vector3 velocity;
     [SerializeField] private Animator animator;
+    [SerializeField] private bool isGround;
     public bool IsGrounded => Physics.CheckSphere(groundCheckPoint.position, checkSphereRadius, groundMask);
     private CharacterController characterController;
     private void Start()
@@ -18,6 +19,7 @@ public class PlayerMovementController : MonoBehaviour
     }
     private void Update()
     {
+        isGround = IsGrounded;
         if (IsGrounded && velocity.y < 0)
         {
             velocity.y = -2;
@@ -34,9 +36,9 @@ public class PlayerMovementController : MonoBehaviour
         transform.localRotation = Quaternion.Euler(xRotation, 0, 0);
         transform.Rotate(Vector3.up * (direction.x * mouseSensivity * Time.deltaTime));*/
     }
-    public void Move(Vector3 direction)
+    public void Move(Vector2 direction)
     {
-        if (direction == Vector3.zero)
+        if (direction == Vector2.zero)
         {
             animator.SetBool("isMoving", false);
         }
@@ -44,7 +46,7 @@ public class PlayerMovementController : MonoBehaviour
         {
             animator.SetBool("isMoving", true);
         }
-        Vector3 moveDirection = transform.right * direction.x + transform.forward * direction.z;
+        Vector3 moveDirection = transform.right * direction.x + transform.forward * direction.y;
 
         //Debug.Log(direction.x);
         characterController.Move(moveDirection * moveSpeed * Time.deltaTime);

@@ -103,6 +103,7 @@ public class PlayerCombatSystem : MonoBehaviour
     }
     public void SelectWeapon(int numberWeapon)
     {
+        Debug.Log(numberWeapon);
         if (selectedWeapon != weapons[numberWeapon] && isThrowingGrenade == false && isReloading == false)
         {
             if (accesWeapon.TryGetValue(weapons[numberWeapon], out bool value) && isSwitching == false)
@@ -154,7 +155,7 @@ public class PlayerCombatSystem : MonoBehaviour
         }
         Debug.Log("SelectDeafaultWeapon");
         SelectWeapon(0);
-        animator.ResetTrigger("Reload");
+        //animator.ResetTrigger("Reload");
         isReloading = false;
     }
     public void Reset()
