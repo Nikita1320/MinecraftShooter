@@ -23,7 +23,6 @@ public class CFX_AutoDestructShuriken : MonoBehaviour
 			}
 			else
 			{
-				Debug.Log("DestroyParticle");
 				Destroy(gameObject);
 			}
 			break;

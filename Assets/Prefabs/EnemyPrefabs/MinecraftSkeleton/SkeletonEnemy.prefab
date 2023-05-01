@@ -171,7 +171,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rangeAttack: 20
-  attackSpeed: 2
+  attackSpeed: 4
   animator: {fileID: 4341368544253812025}
   playerLayer:
     serializedVersion: 2

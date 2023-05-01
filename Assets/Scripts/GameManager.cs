@@ -16,19 +16,23 @@ public struct CombinationEnemies
 }
 public class GameManager : MonoBehaviour
 {
+    [Header("MapSettings")]
     [SerializeField] private Map[] maps;
     [SerializeField] private Map selectedMap;
 
+    [Header("RewardSettings")]
     [SerializeField] private Price baseRewardForWin;
     [SerializeField] private int increseRewardValue;
     [SerializeField] private RewardPanel rewardPanel;
 
+    [Header("EnemySettings")]
     [SerializeField] private CombinationEnemies[] possibleCombinationEnemy;
-    [SerializeField] private int currentLevel = 0;
-    [SerializeField] private TMP_Text levelText;
     [SerializeField] private int baseAmmountEnemies;
     [SerializeField] private int increseAmmountEnemies;
+    [SerializeField] private int currentLevel = 0;
+    [SerializeField] private TMP_Text levelText;
 
+    [Space(5)]
     [SerializeField] private Inventory inventory;
     [SerializeField] private Character character;
     [SerializeField] private InputConroller inputConroller;
@@ -196,7 +200,7 @@ public class GameManager : MonoBehaviour
     }
     private void RenderEnemiesAmmount()
     {
-        ammountEnemies.text = $"{remainingEnemies}/{startAmmountEnemies}";
+        ammountEnemies.text = $"{startAmmountEnemies - remainingEnemies}/{startAmmountEnemies}";
     }
     private IEnumerator FadeLoadPanel(bool isOpened, Action faded, float time, float delayTime = 0)
     {
@@ -217,7 +221,6 @@ public class GameManager : MonoBehaviour
                 }
                 if (remainingTimeFade <= 0)
                 {
-                    Debug.Log("BREAK");
                     faded?.Invoke();
                     break;
                 }

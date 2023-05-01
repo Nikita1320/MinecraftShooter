@@ -44,7 +44,6 @@ public class Weapon : MonoBehaviour
             if (Physics.Raycast(ray, out hitInfo, 100f, bulletCollisionLayer))
             {
                 var hitObject = hitInfo.collider.gameObject;
-                Debug.Log($"hit = {hitInfo.collider.gameObject.name}");
                 var particle = Instantiate(hitParticle, null);
                 particle.transform.position = hitInfo.point;
 
@@ -52,9 +51,7 @@ public class Weapon : MonoBehaviour
                 {
                     if (damagableLayer == ( damagableLayer | (1 << hitObject.gameObject.layer)))
                     {
-                        Debug.Log("ItsDamageLayer");
                         hitObject.GetComponent<Health>().TakeDamage(weaponData.GetDamageValue(level), hitInfo.point);
-                        Debug.Log("SENDDAMAGE");
                     }
                 }
             }

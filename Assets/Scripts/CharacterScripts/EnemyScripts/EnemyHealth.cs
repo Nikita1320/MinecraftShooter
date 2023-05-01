@@ -45,6 +45,5 @@ public class EnemyHealth : Health
         var particle = Instantiate(particlePref, transform);
         particle.gameObject.transform.position = hitPosition;
         TakeDamage(damage);
-        Debug.Log("TakeDamage");
     }
 }

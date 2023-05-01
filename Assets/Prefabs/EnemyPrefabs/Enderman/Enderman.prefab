@@ -1543,7 +1543,7 @@ MonoBehaviour:
   playerLayer:
     serializedVersion: 2
     m_Bits: 128
-  damage: 50
+  damage: 25
   radiusAttack: 1.5
 --- !u!114 &4937739429403878899
 MonoBehaviour:
@@ -1561,7 +1561,6 @@ MonoBehaviour:
   moveSpeed: 50
   rotateSpeed: 10
   animator: {fileID: 8271820891817881603}
-  iHavePath: 0
 --- !u!195 &2346270084625617093
 NavMeshAgent:
   m_ObjectHideFlags: 0

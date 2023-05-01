@@ -2074,7 +2074,7 @@ MonoBehaviour:
   playerLayer:
     serializedVersion: 2
     m_Bits: 128
-  damage: 50
+  damage: 25
   radiusAttack: 2
 --- !u!114 &5401343867225380941
 MonoBehaviour:

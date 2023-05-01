@@ -17,11 +17,11 @@ public class PlayerCombatSystem : MonoBehaviour
     [SerializeField] private LayerMask enemyLayer;
     [SerializeField] private Transform grenadeSpawnPoint;
 
+    private bool isSwitching = false;
+    private bool isReloading = false;
+    private bool isThrowingGrenade = false;
     private Weapon nextWeapon;
     private Dictionary<Weapon, bool> accesWeapon = new();
-    [SerializeField] private bool isSwitching = false;
-    [SerializeField] private bool isReloading = false;
-    [SerializeField] private bool isThrowingGrenade = false;
 
     public Action shootedEvent;
     public Action threwGrenadeEvent;
@@ -38,7 +38,6 @@ public class PlayerCombatSystem : MonoBehaviour
         {
             if (selectedWeapon.Shoot())
             {
-                Debug.Log("MakeShoot");
                 animator.SetTrigger("Shoot");
                 shootedEvent?.Invoke();
             }
@@ -48,7 +47,6 @@ public class PlayerCombatSystem : MonoBehaviour
             }
             if (selectedWeapon.RemainingBulletInClip == 0 && isReloading == false)
             {
-                Debug.Log("RELOAD");
                 StartReload();
             }
         }
@@ -67,7 +65,6 @@ public class PlayerCombatSystem : MonoBehaviour
             animator.ResetTrigger("Reload");
             animator.ResetTrigger("Shoot");
             reloadedWeaponEvent?.Invoke();
-            Debug.Log("RELOAD");
         }
     }
     public void StartThrowGrenade()
@@ -103,7 +100,6 @@ public class PlayerCombatSystem : MonoBehaviour
     }
     public void SelectWeapon(int numberWeapon)
     {
-        Debug.Log(numberWeapon);
         if (selectedWeapon != weapons[numberWeapon] && isThrowingGrenade == false && isReloading == false)
         {
             if (accesWeapon.TryGetValue(weapons[numberWeapon], out bool value) && isSwitching == false)
@@ -118,7 +114,6 @@ public class PlayerCombatSystem : MonoBehaviour
                     selectedWeapon = null;
                     nextWeapon = weapons[numberWeapon];
                     animator.SetTrigger("ChangeWeapon");
-                    Debug.Log("ChangeWEAPON");
                 }
             }
         }
@@ -133,7 +128,6 @@ public class PlayerCombatSystem : MonoBehaviour
         nextWeapon = null;
         animator.runtimeAnimatorController = selectedWeapon.WeaponData.OverrideController;
         selectedWeapon.gameObject.SetActive(true);
-        Debug.Log("ACTIVATE WEAPON");
         isSwitching = false;
         switchedWeaponEvent?.Invoke();
     }
@@ -153,7 +147,6 @@ public class PlayerCombatSystem : MonoBehaviour
         {
             weapons[i].Reload();
         }
-        Debug.Log("SelectDeafaultWeapon");
         SelectWeapon(0);
         //animator.ResetTrigger("Reload");
         isReloading = false;
