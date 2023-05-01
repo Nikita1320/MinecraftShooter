@@ -16129,10 +16129,8 @@ MonoBehaviour:
     - {fileID: 7211075946293075423, guid: fb5d1d6915e725b4d9946af11a1e07ef, type: 3}
     - {fileID: 4341368544253812421, guid: 79253838e5197764284cee2ab5947bf8, type: 3}
     - {fileID: 8937207375749027355, guid: cd708980ba9497d40a68553b8089c201, type: 3}
-  baseAmmountEnemies: 30
+  baseAmmountEnemies: 20
   increseAmmountEnemies: 1
-  currentLevel: 0
-  levelText: {fileID: 452307684}
   inventory: {fileID: 1241644716}
   character: {fileID: 1734551992}
   inputConroller: {fileID: 1618001446}
@@ -16140,6 +16138,7 @@ MonoBehaviour:
   playerCombatSystem: {fileID: 1618001443}
   playerHealth: {fileID: 1618001448}
   playerMovementController: {fileID: 1981462563}
+  levelText: {fileID: 452307684}
   mainPanel: {fileID: 500679323}
   gamePanel: {fileID: 1702825743}
   loadPanel: {fileID: 529287287}

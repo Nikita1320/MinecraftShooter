@@ -10,7 +10,6 @@ public class PlayerMovementController : MonoBehaviour
     [SerializeField] private LayerMask groundMask;
     [SerializeField] private Vector3 velocity;
     [SerializeField] private Animator animator;
-    [SerializeField] private bool isGround;
     public bool IsGrounded => Physics.CheckSphere(groundCheckPoint.position, checkSphereRadius, groundMask);
     private CharacterController characterController;
     private void Start()

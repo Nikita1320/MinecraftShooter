@@ -29,8 +29,6 @@ public class GameManager : MonoBehaviour
     [SerializeField] private CombinationEnemies[] possibleCombinationEnemy;
     [SerializeField] private int baseAmmountEnemies;
     [SerializeField] private int increseAmmountEnemies;
-    [SerializeField] private int currentLevel = 0;
-    [SerializeField] private TMP_Text levelText;
 
     [Space(5)]
     [SerializeField] private Inventory inventory;
@@ -41,6 +39,9 @@ public class GameManager : MonoBehaviour
     [SerializeField] private PlayerHealth playerHealth;
     [SerializeField] private PlayerMovementController playerMovementController;
 
+    [Space(5)]
+    
+    [SerializeField] private TMP_Text levelText;
     [SerializeField] private GameObject mainPanel;
     [SerializeField] private GameObject gamePanel;
     [SerializeField] private Image loadPanel;
@@ -50,6 +51,7 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private SaveLoadSystem saveLoadSystem;
     private List<GameObject> enemies = new();
+    private int currentLevel = 0;
     private int startAmmountEnemies;
     private int remainingEnemies;
     public Action endedBattle;
