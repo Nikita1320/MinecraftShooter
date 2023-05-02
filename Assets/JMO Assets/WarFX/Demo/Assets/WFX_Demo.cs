@@ -165,7 +165,6 @@ public class WFX_Demo : MonoBehaviour
 					rx += 180;
 				
 				m4.transform.localEulerAngles = new Vector3(rx,ry,rz);
-				Debug.Log(rx);
 			}
 			GUILayout.EndArea();
 		}

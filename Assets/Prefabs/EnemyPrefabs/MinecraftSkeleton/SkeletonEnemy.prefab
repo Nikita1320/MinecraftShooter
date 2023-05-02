@@ -176,7 +176,7 @@ MonoBehaviour:
   playerLayer:
     serializedVersion: 2
     m_Bits: 128
-  damage: 25
+  damage: 15
   bulletPrefab: {fileID: 5584585768699760017, guid: 72e728d48f5c5c04180a7846d01cbb3a, type: 3}
   spawnBulletPoint: {fileID: 9099827783193904047}
   target: {fileID: 0}

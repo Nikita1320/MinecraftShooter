@@ -21,13 +21,11 @@ public class Rocket : Bullet
     }
     protected override void OnTriggerEnter(Collider other)
     {
-        Debug.Log("RocketCollisin");
         if (isInit)
         {
             if (collisionLayer == (collisionLayer | (1 << other.gameObject.layer)))
             {
                 GetDamage();
-                Debug.Log("RocketCollisinLayer");
                 Destroy(gameObject);
             }
         }
@@ -47,7 +45,6 @@ public class Rocket : Bullet
         Collider[] detectedCols = Physics.OverlapSphere(transform.position, radiusDamage, layer);
         foreach (var col in detectedCols)
         {
-            Debug.Log($"Distance = {Vector3.Distance(transform.position, col.transform.position)}, Damage = {damage * (Vector3.Distance(transform.position, col.transform.position) / radiusDamage)}");
             col.GetComponent<EnemyHealth>().TakeDamage(damage - (damage * (Vector3.Distance(transform.position, col.transform.position) / radiusDamage)));
         }
         var particles = Instantiate(explosionParticle);

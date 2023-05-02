@@ -22,7 +22,6 @@ public class SniperRiffleWeapon : Weapon
             for (int i = 0; i < hits.Length; i++)
             {
                 var hitObject = hits[0].collider.gameObject;
-                Debug.Log($"hit = {hits[0].collider.gameObject.name}");
                 var particle = Instantiate(hitParticle, null);
                 particle.transform.position = hits[0].point;
 

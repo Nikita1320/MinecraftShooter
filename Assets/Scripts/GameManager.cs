@@ -54,11 +54,13 @@ public class GameManager : MonoBehaviour
     private int currentLevel = 0;
     private int startAmmountEnemies;
     private int remainingEnemies;
+    private int mapCounter;
     public Action endedBattle;
     private void Start()
     {
+        mapCounter = UnityEngine.Random.Range(0, maps.Length);
         currentLevel = saveLoadSystem.LoadGameLevel();
-        levelText.text = $"Level: {currentLevel}";
+        levelText.text = $"Level: {currentLevel + 1}";
         SetMaps();
         inputConroller.gameObject.transform.position = selectedMap.PlayerPosition.position;
         inputConroller.gameObject.transform.rotation = selectedMap.PlayerPosition.rotation;
@@ -98,7 +100,15 @@ public class GameManager : MonoBehaviour
         {
             selectedMap.gameObject.SetActive(false);
         }
-        selectedMap = maps[UnityEngine.Random.Range(0, maps.Length)];
+        selectedMap = maps[mapCounter];
+        if (mapCounter == maps.Length - 1)
+        {
+            mapCounter = 0;
+        }
+        else
+        {
+            mapCounter++;
+        }
         selectedMap.gameObject.SetActive(true);
     }
     private EnemyBehaviour[] GetPossibleEnemyes()
@@ -144,7 +154,7 @@ public class GameManager : MonoBehaviour
         //smth action
         currentLevel++;
         saveLoadSystem.SaveGameLevel(currentLevel);
-        levelText.text = $"Level: {currentLevel}";
+        levelText.text = $"Level: {currentLevel + 1}";
         rewardPanel.OpenRewardPanel(new Price(baseRewardForWin.TypeResource, baseRewardForWin.Cost + increseRewardValue * currentLevel));
         endedBattle?.Invoke();
         StartCoroutine(FadeLoadPanel(false, Reset, timeFade));

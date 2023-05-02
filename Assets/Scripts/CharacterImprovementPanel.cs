@@ -6,6 +6,10 @@ using UnityEngine.UI;
 public class CharacterImprovementPanel : MonoBehaviour
 {
     [SerializeField] private int ammountImprovementForAdImprove;
+    [SerializeField] private int offsetForOpenAdButtonHealth;
+    [SerializeField] private int offsetForOpenAdButtonSpeed;
+    [SerializeField] private int offsetForOpenAdButtonGrenade;
+
     [SerializeField] private Image progressPrefab;
     [SerializeField] private Sprite improvePointSprite;
     [SerializeField] private Sprite notImprovePointSprite;
@@ -144,7 +148,7 @@ public class CharacterImprovementPanel : MonoBehaviour
         if (character.CurrentLevelHealth < character.MaxLevelHealth)
         {
             purchaseHealthButton.Init(character.CurrentUpgradeHealthPrice);
-            if (character.CurrentLevelHealth % ammountImprovementForAdImprove == 0)
+            if (character.CurrentLevelHealth % (ammountImprovementForAdImprove + offsetForOpenAdButtonHealth) == 0)
             {
                 purchaseHealthButton.gameObject.SetActive(false);
                 adHealthButton.gameObject.SetActive(true);
@@ -170,7 +174,7 @@ public class CharacterImprovementPanel : MonoBehaviour
         if (character.CurrentLevelSpeed < character.MaxLevelSpeed)
         {
             purchaseSpeedButton.Init(character.CurrentUpgradeSpeedPrice);
-            if (character.CurrentLevelSpeed % ammountImprovementForAdImprove == 0)
+            if (character.CurrentLevelSpeed % (ammountImprovementForAdImprove + offsetForOpenAdButtonSpeed) == 0 && character.CurrentLevelSpeed != 0)
             {
                 purchaseSpeedButton.gameObject.SetActive(false);
                 adSpeedButton.gameObject.SetActive(true);
@@ -196,7 +200,7 @@ public class CharacterImprovementPanel : MonoBehaviour
         if (character.CurrentLevelGrenade < character.MaxLevelGrenade)
         {
             purchaseGranateButton.Init(character.CurrentUpgradeGrenadePrice);
-            if (character.CurrentLevelGrenade % ammountImprovementForAdImprove == 0)
+            if (character.CurrentLevelGrenade % (ammountImprovementForAdImprove + offsetForOpenAdButtonGrenade) == 0 && character.CurrentLevelGrenade != 0)
             {
                 purchaseGranateButton.gameObject.SetActive(false);
                 adGrenadeButton.gameObject.SetActive(true);
